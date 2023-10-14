@@ -223,3 +223,38 @@ footer p.kopi {
     margin: 0.5rem;
   }
 }
+
+.detail-title {
+  margin-left: 1rem;
+}
+
+.oren {
+  color: var(--warna5);
+}
+
+.detail-img {
+  float: left;
+  margin-right: 2rem;
+}
+
+.bagian-detail {
+  padding: 0 10rem;
+}
+
+.list-detail {
+  margin-left: 32rem;
+}
+
+.buybuybuy {
+  background-color: var(--warna3);
+  color: var(--warna5);
+  padding: 1rem;
+  border-radius: 1.4rem;
+  border: none;
+  text-decoration: none;
+}
+
+.buybuybuy:hover {
+  background-color: var(--warna5);
+  color: var(--warna3);
+}
