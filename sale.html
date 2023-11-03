@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hatarika - Sale</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <main id="sale">
+    <header>
+        <h1>Your <span>Shoes</span></h1>
+        <ul type="none" class="nav">
+            <li><a href="./">Home</a></li>
+            <li class="dropdown"><a>Collections</a>
+                <ul type="none" class="dropdowncontent">
+                    <li><a class="dropdowncontent2">Sneakers</a></li>
+                    <li><a class="dropdowncontent2">Slip On</a></li>
+                    <li><a class="dropdowncontent2">Boots</a></li>
+                    <li><a class="dropdowncontent2">Pantofel</a></li>
+                </ul></li>
+            <li><a>Brands</a></li>
+            <li><a href="sale.php">Sale</a></li>
+            <li><a class="login" @click="showCart()">Cart ( {{ kart.length }} )</a></li>
+        </ul>
+    </header>
+
+    <h1 class="detail-title">Product <span class="oren">Sale</span></h1>
+
+    <div class="bagian-detail">
+        <div class="grid-sale">
+
+            <div class="item-related" v-for="item in variants">
+                <img :src="item.pic" style="height:19rem;" alt="list">
+                <p><b>{{item.name}}</b></p>
+                <p>Rp. {{item.price}}</p>
+                <a href="#" id="detail" @click="showModal(item.id)">Details</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="modar" class="modal" :class="visibility">
+      <div class="modal-content">
+        <div class="isi-modal">
+          <img :src="selectedData.pic" :alt="selectedData.name">
+      </div>
+      <div class="isi-modal">
+      <span @click="hideModal()" class="exit-button">&times;</span>
+          <div class="teks">
+              <h2 class="oren">{{selectedData.name}}</h2>
+              <h2>Rp {{selectedData.price}}</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare pharetra laoreet. Nullam molestie urna eu malesuada consequat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla mollis purus ut ornare finibus. Etiam vestibulum ultrices elit mollis elementum. Fusce bibendum mauris a arcu malesuada pharetra. Aenean luctus, lorem ut vehicula sagittis, risus enim dapibus ex, sollicitudin bibendum nibh sem et velit. Integer ante dolor, porttitor in euismod quis, eleifend vel erat. Donec facilisis tempus erat, ac imperdiet nisi iaculis id.</p>
+              <h3 class="oren">Specification</h3>
+              <ul>
+                  <li>placeholder</li>
+                  <li>placeholder</li>
+                  <li>placeholder</li>
+                  <li>placeholder</li>
+                  <li>placeholder</li>
+              </ul>
+              <h3 class="oren">Size Chart</h3>
+              <div>
+                  <select name="size" id="size" v-model="size">
+                    <option value="1">Size 1</option>
+                    <option value="2">Size 2</option>
+                    <option value="3">Size 3</option>
+                    <option value="4">Size 4</option>
+                    <option value="5">Size 5</option>
+                    <option value="6">Size 6</option>
+                  </select>
+                  <!-- <p>If you can't find your size, please input your size here!</p> -->
+                  <p>Special request<br> <input type="text" v-model="req" placeholder="e.g EUR 43"></p>
+
+                  <h3 class="oren">Quantity</h3>
+                  <div class="plus-minus">
+                    <a id="qtySub" @click="qtySub()">-</a>
+                    <input type="number" v-model="qty">
+                    <a id="qtyAdd" @click="qtyAdd()">+</a>
+                  </div>
+
+                  <h3 class="oren">Packaging</h3>
+                      <input type="radio" id="normal" v-model="pack" value="normal">
+                      <label for="normal">Normal</label>
+                      <input type="radio" id="bubble" v-model="pack" value="bubble">
+                      <label for="bubble">Bubble Wrap</label>
+                      <input type="radio" id="box" v-model="pack" value="box">
+                      <label for="box">Wooden Box</label>
+                  <hr>
+              </div>
+          </div>
+          
+          <a href="#" class="buybuybuyeh" @click="addToCart(selectedData.id)">Add to Cart</a>
+          <a href="#" class="buybuybuyeh" @click="buyNow()">Buy Now</a>
+      </div>
+      </div>
+    </div>
+    <!-- Modal Done -->
+
+    <!-- The kart -->
+    <div id="kart" class="modal" :class="showenKarten">
+      <div class="modal-content col">
+
+        <div v-if="kart.length==0">
+          <h1>Shopping Cart Empty</h1>
+          <span @click="hideCart()" class="exit-button">&times;</span>
+        </div>
+
+        <div v-else>
+          <h1>Shopping Cart</h1>
+          <span @click="hideCart()" class="exit-button">&times;</span>
+
+          <div v-for="(hehe, index) in kart">
+            <hr>
+            <div class="flex">
+
+              <div>
+                <img :src="hehe.pic" style="height:12rem;margin-right:2rem;" :alt="hehe.pic">
+              </div>
+
+              <div style="margin-right: 2rem;">
+                <h3>{{hehe.name}}</h3>
+                <p>Size: {{hehe.size}}</p>
+                <p>Packaging: {{hehe.pack}}</p>
+                <p class="oren">Rp {{hehe.price}}</p>
+              </div>
+              <div style="padding-top:2.62rem">
+                <p>Qty: {{hehe.qty}}</p>
+                <p>Note: {{hehe.req}}</p>
+              </div>
+
+              <div style="margin-left: auto;padding-top:2rem">
+                <a class="delet" @click="deleteKart(index)">Delete</a>
+              </div>
+
+            </div>
+          </div>
+          <div class="footer-modal">
+            <span>Rp. {{total}}</span>
+            <a class="delet" @click="buyCart()">Buy</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Kart Done -->
+
+    </main>
+
+    <footer>
+        <div>
+            <ul>
+                <li><h4>Hatarika</h4></li>
+                <li>Hatarika</li>
+                <li>Jl. Sudirman No. XX</li>
+                <li>hatarika@mail.com</li>
+                <li>(021) 2552-XXXX</li>
+            </ul>
+
+            <ul>
+                <li><h4>Hatarika Collection</h4></li>
+                <li><a href="detail.html">Sneakers</a></li>
+                <li><a href="detail.html">Slip On</a></li>
+                <li><a href="detail.html">Boots</a></li>
+                <li><a href="detail.html">Pantofel</a></li>
+            </ul>
+
+            <ul>
+                <li><h4>Follow us on</h4></li>
+                <li>Hatarika</li>
+                <li>Hatarika</li>
+                <li>Hatarika</li>
+                <li>Hatarika</li>
+            </ul>
+        </div>
+        <p class="kopi">Copyright &copy; 2023 Hatarika.co All Rights Reserved</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

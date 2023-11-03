@@ -17,6 +17,12 @@ body {
   margin: 0;
 }
 
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 header {
   width: 100%;
   display: flex;
@@ -45,6 +51,8 @@ header ul li a {
   vertical-align: middle;
   margin: 2rem 1rem;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 header ul a:hover {
@@ -172,15 +180,29 @@ header ul a:hover {
 }
 
 footer {
-  display: flex;
   background-color: var(--warna4);
+  color: #fff;
+}
+
+footer div {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 2rem 10rem 3rem 10rem;
-  color: white;
+  max-width: 80vw;
+  margin: auto;
+}
+
+@media (max-width:1024px){
+  footer div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 footer ul {
   list-style-type: none;
+  padding: initial;
+  margin: initial;
 }
 
 footer h4 {
@@ -199,9 +221,8 @@ footer a:hover {
 footer p.kopi {
   width: 89%;
   text-align: center;
-  margin-top: 11rem;
   color: var(--warna6);
-  position: absolute;
+  margin: 2rem 0 0 0;
 }
 
 @media (max-width:600px) {
@@ -232,29 +253,286 @@ footer p.kopi {
   color: var(--warna5);
 }
 
-.detail-img {
-  float: left;
-  margin-right: 2rem;
-}
-
 .bagian-detail {
-  padding: 0 10rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: stretch;
+  max-width: 79vw;
+  margin: auto;
+  justify-content: space-between;
 }
 
-.list-detail {
-  margin-left: 32rem;
+@media (max-width:1024px) {
+  .bagian-detail {
+    flex-direction: column;
+  }
+}
+
+.isi-bagian-detail {
+  width: 49%;
+  position: relative;
+}
+
+.isi-bagian-detail img {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width:1024px) {
+  .bagian-detail {
+    max-width: 100vw;
+  }
+  .teks {
+    max-width: 79vw;
+    margin: auto;
+  }
+  .isi-bagian-detail {
+    width: 100%;
+  }
+}
+
+.size p {
+  margin-left: 2.5rem;
 }
 
 .buybuybuy {
+  display: block;
   background-color: var(--warna3);
   color: var(--warna5);
   padding: 1rem;
-  border-radius: 1.4rem;
+  border-radius: 2rem;
   border: none;
   text-decoration: none;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.buybuybuyeh {
+  display: inline-block;
+  background-color: var(--warna3);
+  color: var(--warna5);
+  padding: 1rem;
+  border-radius: 2rem;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 .buybuybuy:hover {
   background-color: var(--warna5);
   color: var(--warna3);
+}
+
+.buybuybuyeh:hover {
+  background-color: var(--warna5);
+  color: var(--warna3);
+}
+
+@media (max-width:1280px){
+  .buybuybuy {
+    position: relative;
+    max-width: 100%;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+  }
+}
+
+.bagian-related {
+  padding-top: 2rem;
+}
+
+.grid-related {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 0 5rem 2rem;
+}
+
+.grid-sale {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.isi-grid-sale {
+  margin: 0 5rem 2rem;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.isi-modal img {
+  width: 30vw;
+  margin-right: 2rem;
+}
+
+.footer-modal {
+  background-color: #fff;
+  padding: 1.5rem 1rem;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  display: block;
+  text-align: right;
+}
+
+.footer-modal span {
+  margin-right: 1rem;
+}
+
+.no {
+  display: none;
+}
+
+.yes {
+  display: block;
+}
+
+.col {
+  display: block !important;
+}
+
+select {
+  cursor: pointer;
+}
+
+option {
+  cursor: pointer !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.delet {
+  padding: 1rem;
+  color: #fefefe;
+  background-color: #000;
+  cursor: pointer;
+}
+
+.delet:hover {
+  background-color: #393e46;
+  color: red;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  display: flex;
+  position: relative;
+  overflow-y: scroll;
+  height: 70vh;
+  position: relative;
+}
+
+/* The Close Button */
+.exit-button {
+  color: #aaaaaa;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.exit-button:hover,
+.exit-button:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.plus-minus {
+  margin: 1rem 0;
+  user-select: none;
+}
+
+.plus-minus a {
+  cursor: pointer;
+  color: #fefefe;
+  font-weight: bold;
+  background-color: #393e46;
+}
+
+.plus-minus a#qtyAdd {
+  padding: 0.25rem 0.5rem;
+}
+
+.plus-minus a#qtySub {
+  padding: 0.25rem 0.6rem;
+}
+
+.plus-minus a:hover {
+  background-color: #000;
+}
+.plus-minus a:active {
+  background-color: #393e46;
+}
+
+.plus-minus input {
+  height: 1.3rem;
+  width: 2.5rem;
+}
+
+@media (max-width:1024px){
+  .grid-related {
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+}
+
+.item-related {
+  text-align: center;
+  margin: 0 1rem 5rem;
+}
+
+.item-related img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.item-related a {
+  background-color: var(--warna3);
+  color: var(--warna5);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: none;
+  text-decoration: none;
+}
+
+
+
+.teks input {
+  display: inline;
+}
+
+@media (max-width:1024px) {
+  .item-related {
+    margin: 0.5rem 0.5rem 2rem;
+  }
+
+  .item-related a {
+    display: block;
+    padding: 1rem;
+  }
 }

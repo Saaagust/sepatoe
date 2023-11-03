@@ -11,7 +11,7 @@
     <header>
         <h1>Your <span>Shoes</span></h1>
         <ul type="none" class="nav">
-            <li><a>Home</a></li>
+            <li><a href="./">Home</a></li>
             <li class="dropdown"><a>Collections</a>
                 <ul type="none" class="dropdowncontent">
                     <li><a class="dropdowncontent2">Sneakers</a></li>
@@ -20,7 +20,7 @@
                     <li><a class="dropdowncontent2">Pantofel</a></li>
                 </ul></li>
             <li><a>Brands</a></li>
-            <li><a>Sale</a></li>
+            <li><a href="sale.html">Sale</a></li>
             <li><a class="login">Log In</a></li>
         </ul>
     </header>
@@ -28,52 +28,108 @@
     <h1 class="detail-title">Detail Product</h1>
 
     <div class="bagian-detail">
-        <img src="assets/detail.webp" alt="detail" class="detail-img">
-        <h2 class="oren">Black Sneakers</h2>
-        <h2>Rp 599.999,00</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare pharetra laoreet. Nullam molestie urna eu malesuada consequat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla mollis purus ut ornare finibus. Etiam vestibulum ultrices elit mollis elementum. Fusce bibendum mauris a arcu malesuada pharetra. Aenean luctus, lorem ut vehicula sagittis, risus enim dapibus ex, sollicitudin bibendum nibh sem et velit. Integer ante dolor, porttitor in euismod quis, eleifend vel erat. Donec facilisis tempus erat, ac imperdiet nisi iaculis id.</p>
-        <h3 class="oren">Specification</h3>
-        <ul class="list-detail">
-            <li>placeholder</li>
-            <li>placeholder</li>
-            <li>placeholder</li>
-            <li>placeholder</li>
-            <li>placeholder</li>
-        </ul>
-        <h3 class="oren">Size Chart</h3>
-        <p>placeholder placeholder</p>
-        <p>placeholder placeholder</p>
-        <p>placeholder placeholder</p>
-        <p>placeholder placeholder</p>
-        <p>placeholder placeholder</p>
-        <a href="#" class="buybuybuy">BUY</a>
+        <div class="isi-bagian-detail">
+            <img src="assets/detail.webp" alt="detail">
+        </div>
+        <div class="isi-bagian-detail">
+            <div class="teks">
+                <h2 class="oren">Black Sneakers</h2>
+                <h2>Rp 599.999,00</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare pharetra laoreet. Nullam molestie urna eu malesuada consequat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla mollis purus ut ornare finibus. Etiam vestibulum ultrices elit mollis elementum. Fusce bibendum mauris a arcu malesuada pharetra. Aenean luctus, lorem ut vehicula sagittis, risus enim dapibus ex, sollicitudin bibendum nibh sem et velit. Integer ante dolor, porttitor in euismod quis, eleifend vel erat. Donec facilisis tempus erat, ac imperdiet nisi iaculis id.</p>
+                <h3 class="oren">Specification</h3>
+                <ul>
+                    <li>placeholder</li>
+                    <li>placeholder</li>
+                    <li>placeholder</li>
+                    <li>placeholder</li>
+                    <li>placeholder</li>
+                </ul>
+                <h3 class="oren">Size Chart</h3>
+                <div>
+                    <select name="size" id="size">
+                      <option value="1">Size 1</option>
+                      <option value="2">Size 2</option>
+                      <option value="3">Size 3</option>
+                      <option value="4">Size 4</option>
+                      <option value="5">Size 5</option>
+                      <option value="6">Size 6</option>
+                    </select>
+                    <p>If you can't find your size, please input your size here!</p>
+                    <p>Special request <input type="text" placeholder="e.g EUR 43"></p>
+                    <h3 class="oren">Packaging</h3>
+                        <input type="radio" id="normal" name="fav_language" value="normal">
+                        <label for="normal">Normal</label>
+                        <input type="radio" id="bubble" name="fav_language" value="bubble">
+                        <label for="bubble">Bubble Wrap</label>
+                        <input type="radio" id="box" name="fav_language" value="box">
+                        <label for="box">Wooden Box</label>
+                    <hr>
+                </div>
+            </div>
+            <a href="#" class="buybuybuy">Add to Cart</a>
+        </div>
+    </div>
+    <div class="bagian-related">
+        <h2 class="detail-title">Related Product</h2>
+        <div class="grid-related">
+
+            <div class="item-related">
+                <img src="assets/list1.webp" style="height:19rem;" alt="list">
+                <p><b>Nama Sepatu</b></p>
+                <p>Rp. 520.000</p>
+                <a v-on:click="">Details</a>
+            </div>
+
+            <div class="item-related">
+                <img src="assets/list2.webp" style="height:19rem;" alt="list">
+                <p><b>Nama Sepatu</b></p>
+                <p>Rp. 520.000</p>
+                <a href="#">Details</a>
+            </div>
+
+            <div class="item-related">
+                <img src="assets/list3.webp" style="height:19rem;" alt="list">
+                <p><b>Nama Sepatu</b></p>
+                <p>Rp. 520.000</p>
+                <a href="#">Details</a>
+            </div>
+
+            <div class="item-related">
+                <img src="assets/testi2.jpeg" style="height:19rem;" alt="list">
+                <p><b>Nama Sepatu</b></p>
+                <p>Rp. 520.000</p>
+                <a href="#">Details</a>
+            </div>
+
+        </div>
     </div>
 
     <footer>
-        <ul>
-            <li><h4>Hatarika</h4></li>
-            <li>Hatarika</li>
-            <li>Jl. Sudirman No. XX</li>
-            <li>hatarika@mail.com</li>
-            <li>(021) 2552-XXXX</li>
-        </ul>
+        <div>
+            <ul>
+                <li><h4>Hatarika</h4></li>
+                <li>Hatarika</li>
+                <li>Jl. Sudirman No. XX</li>
+                <li>hatarika@mail.com</li>
+                <li>(021) 2552-XXXX</li>
+            </ul>
 
-        <ul>
-            <li><h4>Hatarika Collection</h4></li>
-            <li><a href="detail.html">Sneakers</a></li>
-            <li><a href="detail.html">Slip On</a></li>
-            <li><a href="detail.html">Boots</a></li>
-            <li><a href="detail.html">Pantofel</a></li>
-        </ul>
+            <ul>
+                <li><h4>Hatarika Collection</h4></li>
+                <li><a href="detail.html">Sneakers</a></li>
+                <li><a href="detail.html">Slip On</a></li>
+                <li><a href="detail.html">Boots</a></li>
+                <li><a href="detail.html">Pantofel</a></li>
+            </ul>
 
-        <ul>
-            <li><h4>Follow us on</h4></li>
-            <li>Hatarika</li>
-            <li>Hatarika</li>
-            <li>Hatarika</li>
-            <li>Hatarika</li>
-        </ul>
-
+            <ul>
+                <li><h4>Follow us on</h4></li>
+                <li>Hatarika</li>
+                <li>Hatarika</li>
+                <li>Hatarika</li>
+                <li>Hatarika</li>
+            </ul>
+        </div>
         <p class="kopi">Copyright &copy; 2023 Hatarika.co All Rights Reserved</p>
     </footer>
     <script src="js/main.js"></script>
