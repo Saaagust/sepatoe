@@ -125,10 +125,10 @@ var product = new Vue({
                               + this.selectedData.name + "%0Adengan jumlah%20" + this.qty + "%2e%0A%0ATerimakasih."
     },
     buyCart() {
-      var message = "https://wa.me/6285920027156?text=Hallo%2C%20Saya%20ingin%20memesan%20%0Asepatu%20";
+      var message = "https://wa.me/6285920027156?text=Hallo%2C%20Saya%20ingin%20memesan%20sepatu%20";
 
       for(i = 0; i < this.kart.length; i++){
-        message = message + "Produk : " + this.kart[i].name  + "Ukuran : " + this.kart[i].size + "Jumlah : " + this.kart[i].qty;
+        message = message + "%0AProduk : " + this.kart[i].name  + " Ukuran : " + this.kart[i].size + " Jumlah : " + this.kart[i].qty;
       }
 
       window.location.href = message;
